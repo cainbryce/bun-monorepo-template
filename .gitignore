@@ -9,3 +9,5 @@ node_modules
 .tsbuildinfo
 
 coverage
+.wakatime-project
+bun.lock

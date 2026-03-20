@@ -1,18 +1,21 @@
-
 Default to using Bun instead of Node.js.
 
 - Use `bun <file>` instead of `node <file>` or `ts-node <file>`
 - Use `bun test` instead of `jest` or `vitest`
 - Use `bun build <file.html|file.ts|file.css>` instead of `webpack` or `esbuild`
 - Use `bun install` instead of `npm install` or `yarn install` or `pnpm install`
-- Use `bun run <script>` instead of `npm run <script>` or `yarn run <script>` or `pnpm run <script>`
+- Use `bun run <script>` instead of `npm run <script>` or `yarn run <script>` or
+  `pnpm run <script>`
 - Use `bunx <package> <command>` instead of `npx <package> <command>`
 - Bun automatically loads .env, so don't use dotenv.
 
 Use bun scripts to manage monorepo
- - Use `bun new-module` to create a new monorepo module
- - Use `bun get-module` to get metdata about a monorepo module
- - Use `bun delete-module` to delete a monorepo module
+
+- Use `bun new-module` to create a new monorepo module
+- Use `bun get-module` to get metdata about a monorepo module
+- Use `bun delete-module` to delete a monorepo module
+- Use `bun fmt` to format scripts in repository
+- Use `bun run build` to build in the context of the root index.ts as entry
 
 ## APIs
 
@@ -38,7 +41,8 @@ test("hello world", () => {
 
 ## Frontend
 
-Use HTML imports with `Bun.serve()`. Don't use `vite`. HTML imports fully support React, CSS, Tailwind.
+Use HTML imports with `Bun.serve()`. Don't use `vite`. HTML imports fully
+support React, CSS, Tailwind.
 
 Server:
 
@@ -73,7 +77,9 @@ Bun.serve({
 })
 ```
 
-HTML files can import .tsx, .jsx or .js files directly and Bun's bundler will transpile & bundle automatically. `<link>` tags can point to stylesheets and Bun's CSS bundler will bundle.
+HTML files can import .tsx, .jsx or .js files directly and Bun's bundler will
+transpile & bundle automatically. `<link>` tags can point to stylesheets and
+Bun's CSS bundler will bundle.
 
 ```html#index.html
 <html>
@@ -108,4 +114,5 @@ Then, run index.ts
 bun --hot ./index.ts
 ```
 
-For more information, read the Bun API docs in `node_modules/bun-types/docs/**.mdx`.
+For more information, read the Bun API docs in
+`node_modules/bun-types/docs/**.mdx`.

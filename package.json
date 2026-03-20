@@ -45,5 +45,10 @@
 		"get-module": "bun run scripts/get-module.ts",
 		"fmt": "bunx prettier -w .",
 		"build": "bun run scripts/build.ts"
+	},
+	"bun-create": {
+		"preinstall": "bun run scripts/preInstall.ts",
+		"postinstall": "bun run scripts/postInstall.ts",
+		"start": "bun run echo 'Blah'"
 	}
 }

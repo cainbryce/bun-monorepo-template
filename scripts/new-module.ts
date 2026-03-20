@@ -1,4 +1,5 @@
 import { parseArgs } from "node:util"
+import { existsSync, mkdirSync } from "node:fs"
 import { resolve } from "node:path"
 
 const { values, positionals } = parseArgs({
@@ -6,11 +7,14 @@ const { values, positionals } = parseArgs({
 	options: { name: { type: "string", short: "n" } },
 	allowPositionals: true,
 })
+const packagesDir = resolve(import.meta.dir, "../packages")
+
+if (!existsSync(resolve(import.meta.dir, "../packages")))
+	mkdirSync(packagesDir, { mode: 0o770 })
 
 let name = values.name ?? positionals[0]
 if (!name) name = prompt("Please provide a package name >") ?? "noname"
-
-const pkgDir = resolve(import.meta.dir, "../packages", name)
+const pkgDir = resolve(packagesDir, name)
 
 if (await Bun.file(resolve(pkgDir, "package.json")).exists()) {
 	console.error(`Package "${name}" already exists at packages/${name}`)
@@ -113,14 +117,16 @@ const write = (path: string, data: string) =>
 	)
 
 await Promise.all([
-	write("package.json", JSON.stringify(packageJson, null, "\t") + "\n"),
-	write("index.ts", indexTs),
-	write("src/index.ts", srcIndex),
-	write("types/index.d.ts", indexTypes),
-	write("__tests__/index.test.ts", testFile),
-	write("bunfig.toml", bunfig),
-	write("tsconfig.json", tsconfig),
-	write("README.md", readme),
+	write("package.json", JSON.stringify(packageJson, null, "\t") + "\n").catch(
+		(e) => console.error(e)
+	),
+	write("index.ts", indexTs).catch((e) => console.error(e)),
+	write("src/index.ts", srcIndex).catch((e) => console.error(e)),
+	write("types/index.d.ts", indexTypes).catch((e) => console.error(e)),
+	write("__tests__/index.test.ts", testFile).catch((e) => console.error(e)),
+	write("bunfig.toml", bunfig).catch((e) => console.error(e)),
+	write("tsconfig.json", tsconfig).catch((e) => console.error(e)),
+	write("README.md", readme).catch((e) => console.error(e)),
 ])
 
 console.log(`\n✓ packages/${name} created`)

@@ -42,6 +42,8 @@
 	"scripts": {
 		"new-module": "bun run scripts/new-module.ts",
 		"delete-module": "bun run scripts/delete-module.ts",
-		"get-module": "bun run scripts/get-module.ts"
+		"get-module": "bun run scripts/get-module.ts",
+		"fmt": "bunx prettier -w .",
+		"build": "bun run scripts/build.ts"
 	}
 }

@@ -1,0 +1,55 @@
+telemetry = false
+smol = false
+logLevel = "debug"
+
+jsx = "react"
+jsxFactory = "h"
+jsxFragment = "Fragment"
+jsxImportSource = "react"
+
+[console]
+depth = 5
+
+[test]
+root = "./__tests__"
+pathIgnorePatterns = ["packages/**"]
+coverageReporter  = ["text", "lcov"]
+concurrentTestGlob = "**/concurrent-*.test.ts"
+coverageDir = "./coverage"
+randomize = true
+seed = 7291483056
+smol = false
+rerunEach = 3
+retry = 2
+coverageThreshold = { line = 0.7, function = 0.8, statement = 0.9 }
+coverageSkipTestFiles = false
+coverage = true
+
+[install]
+optional = false
+dev = true
+production = false
+peer = true
+exact = false
+saveTextLockFile = true
+auto = "auto"
+frozenLockfile = false
+dryRun = false
+registry = "https://registry.npmjs.org"
+linkWorkspacePackages = true
+linker = "isolated"
+
+[install.cache]
+disable = false
+disableManifest = false
+
+[install.lockfile]
+save = true
+
+[debug]
+editor="code"
+
+[run]
+shell = "bun"
+bun = true
+silent = false

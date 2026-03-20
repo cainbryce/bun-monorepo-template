@@ -1,0 +1,47 @@
+{
+	"name": "bun-monorepo-template",
+	"module": "index.ts",
+	"type": "module",
+	"author": "",
+	"private": false,
+	"release": {
+		"tagFormat": "v${version}",
+		"ci": true,
+		"dryRun": true,
+		"extends": [],
+		"branches": [
+			"+([0-9])?(.{+([0-9]),x}).x",
+			"master",
+			"next",
+			"next-major",
+			{
+				"name": "beta",
+				"prerelease": true
+			},
+			{
+				"name": "alpha",
+				"prerelease": true
+			}
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/cainbryce/bun-monorepo-template",
+		"directory": "."
+	},
+	"workspaces": [
+		"packages/*"
+	],
+	"devDependencies": {
+		"@types/bun": "latest",
+		"@types/node": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "latest"
+	},
+	"scripts": {
+		"new-module": "bun run scripts/new-module.ts",
+		"delete-module": "bun run scripts/delete-module.ts",
+		"get-module": "bun run scripts/get-module.ts"
+	}
+}

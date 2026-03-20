@@ -1,6 +1,10 @@
 # bun-monorepo-template
 
-### Use this template
+## What is this
+This is a mono repo template specifically tailored for the bun eco system
+Please do not use this yet, it's a work in progress and will not work. :)
+
+### Use this template (don't)
 This will create the template in your cwd
 ```bash
 bun create cainbryce/bun-monorepo-template

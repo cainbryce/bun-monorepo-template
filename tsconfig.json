@@ -32,8 +32,8 @@
 		"noUnusedParameters": true,
 		"noPropertyAccessFromIndexSignature": true,
 		"allowUnreachableCode": false,
-		"allowUnusedLabels": false,
+		"allowUnusedLabels": false
 	},
 	"include": ["scripts/*", "packages/*"],
-	"exclude": ["node_modules", "dist", "build"],
+	"exclude": ["node_modules", "dist", "build"]
 }

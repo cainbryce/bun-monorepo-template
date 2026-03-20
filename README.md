@@ -1,5 +1,11 @@
 # bun-monorepo-template
 
+### Use this template
+This will create the template in your cwd
+```bash
+bun create cainbryce/bun-monorepo-template
+```
+
 ### Adding monopkg-b as a dep to monopkg-a
 
 ```jsonc
